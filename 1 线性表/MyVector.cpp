@@ -73,6 +73,34 @@ public:
         --theSize;
     }
 
+    // 在给定位置插入元素
+    void insert(int pos, const T& x) {
+        if (theSize == theCapacity)
+            reserve(2 * theCapacity + 1);
+        for (int i = pos; i < theSize; i++) {
+            objects[i+1] = objects[i];
+        }
+        objects[pos] = x;
+        theSize++;
+    }
+
+    // 删除给定位置的元素
+    void erase(int pos) {
+        for (int i = pos; i < theSize - 1; i++) {
+            objects[i] = objects[i+1];
+        }
+        theSize--;
+    }
+
+    // 查找给定值的下标
+    int find(int value) {
+        for (int i = 0; i < theSize; i++) {
+            if (objects[i] == value)
+                return i;
+        }
+        return -1;
+    }
+
     static const int SPARE_CAPACITY = 2;
 
 private:
@@ -95,5 +123,15 @@ int main() {
     cout << "size = " << v.size() << endl;
     cout << "capacity = " << v.capacity() << endl;
     cout << v[1] << endl;
+    v.insert(1,7);
+    cout << "size = " << v.size() << endl;
+    cout << "capacity = " << v.capacity() << endl;
+    cout << v[1] << endl;
+    v.erase(1);
+    cout << "size = " << v.size() << endl;
+    cout << "capacity = " << v.capacity() << endl;
+    cout << v[1] << endl;
+    cout << v.find(3) << endl;
+    cout << v.find(9) << endl;
     return 0;
 }
