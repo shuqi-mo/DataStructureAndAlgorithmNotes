@@ -142,12 +142,12 @@
   - 状态变量：递归到第几层depth，已经选了哪些数path，布尔型数组visited
   - 输出顺序：[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]
 
-![image-20210911170139839](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210911170139839.png)
+![image-20210911170139839](${picture}/image-20210911170139839.png)
 
 - 回溯思路2：回溯交换的位置
   - 输出顺序：[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,2,1], [3,1,2]
 
-![image-20210911175815093](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210911175815093.png)
+![image-20210911175815093](${picture}/image-20210911175815093.png)
 
 ```c++
     void backtracking(vector<int>& nums, int level, vector<vector<int>>& ans) {
@@ -177,7 +177,7 @@
 
 此外，这道题目中是给数组一个一个元素赋值，所以赋值元素的下标是回溯的层数。
 
-![image-20210911201953725](C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210911201953725.png)
+![image-20210911201953725](${picture}/image-20210911201953725.png)
 
 ```c++
     void backtracking(vector<vector<int>>& ans, vector<int>& output, int level, int pos, int n, int k) {
